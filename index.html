@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsapp QR code generator using JavaScript</title>
+</head>
+<body>
+<script src="qrcode.min.js"></script>
+    <p>Hello world</p>
+    <input type="text" id="QrData" placeholder="Enter phone number to generate QR for whatsapp (with country code)">
+    <input type="button" value="Generate QR" onclick="generateQR()">
+    <div id="qrcode" style="margin-top: 10px;"></div>
+    <script>
+        // whatsapp://send?phone=+918849165682
+        var qrData = document.getElementById('QrData');
+        var qrCode = new QRCode(document.getElementById("qrcode"));
+        function generateQR(){
+            var data = "https://wa.me/+91"+qrData.value;
+            qrCode.makeCode(data);
+        }
+    </script>
+</body>
+</html>
